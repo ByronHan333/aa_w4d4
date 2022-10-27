@@ -7,7 +7,7 @@ describe Player do
     it "should set instance variable" do
       expect(player.name).to eq("Tom")
       expect(player.coins).to eq(100)
-      expect(player.hands).to eq([])
+      expect(player.hand).to eq([])
     end
   end
 
@@ -35,10 +35,21 @@ describe Player do
   end
 
   describe "#accept_hand" do
+    it "should take in an argument" do
+      expect { player.accept_hand([1,2,3,4,5]) }.to_not raise_error
+    end
 
+    it "should append the input to the user's hand" do
+      player.accept_hand([1,2,3])
+      expect(player.hand).to eq([1,2,3])
+    end
   end
 
   describe "#discard_hand" do
-
+    it "should reset the user's hand to an empty array" do
+      player.accept_hand([1,2,3])
+      player.discard_hand
+      expect(player.hand).to eq([])
+    end
   end
 end
