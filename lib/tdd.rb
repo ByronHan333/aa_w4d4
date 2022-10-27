@@ -21,7 +21,7 @@ class Array
     res = Array.new(self.length) {Array.new}
     (0...self.length).each do |i|
       (0...self.length).each do |j|
-        res[i] << self[j][i]
+        res[i] << self[j][i] if self[j][i] 
       end
     end
     res
