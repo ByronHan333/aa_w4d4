@@ -2,19 +2,19 @@ require 'rspec'
 require 'hanoi'
 
 describe Hanoi do
-  subject {Hanoi.new}
+  subject (:hanoi) {Hanoi.new}
 
   describe "#initialize" do
     it "should set tower 1 to full array" do
-      expect(subject.tower1).to eq([7,6,5,4,3,2,1])
+      expect(hanoi.tower1).to eq([7,6,5,4,3,2,1])
     end
 
     it "should set tower 2 to empty array" do
-      expect(subject.tower2).to eq([])
+      expect(hanoi.tower2).to eq([])
     end
 
     it "should set tower 3 to empty array" do
-      expect(subject.tower3).to eq([])
+      expect(hanoi.tower3).to eq([])
     end
   end
 
