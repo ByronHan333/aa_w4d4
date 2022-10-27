@@ -30,3 +30,5 @@ Player
 -bet
 -get_ipnut
 -current_hand
+accept_hand
+discard_hand
