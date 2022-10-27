@@ -5,7 +5,7 @@ describe "Array" do
     describe "#my_uniq" do
         it "takes in an array" do
             arr = [1, 2, 3]
-            expect { arr.my_uniq }.to_not raise_error(ArgumentError)
+            expect { arr.my_uniq }.to_not raise_error
         end
 
         it "should return the same result as Array#uniq when passed an empty array" do
@@ -25,6 +25,56 @@ describe "Array" do
         it "should not use Array#uniq" do
             arr = [1, 2, 3]
             expect(arr.my_uniq).to_not receive(:uniq)
+        end
+    end
+
+    describe "#two_sum" do
+        it "takes in an array" do
+            arr = [1, 2, 3]
+            expect { arr.two_sum }.to_not raise_error
+        end
+
+        it "should return an empty array when given array is empty" do
+            expect([].two_sum).to eq([])
+        end
+
+        it "should return an empty array when given array has only one element" do
+            expect([1].two_sum).to eq([])
+        end
+
+        it "should return the correct pair when a non empty array is passed in" do
+            arr = [-2, -1, 0 , 1, 2]
+            expect(arr.two_sum).to eq([[0,4], [1,3]])
+        end
+    end
+
+    describe "#my_transpose" do
+        let (:arr1) {[
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]}
+        let (:arr2) {[
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 6, 9]
+        ]}
+
+        it "takes in a 2-D array" do
+            expect { arr1.my_transpose }.to_not raise_error
+        end
+
+        it "should return an empty array when given array is empty" do
+            expect([[]].my_transpose).to eq([[]])
+        end
+
+        it "should return correct result when non empty 2-D array is passed" do
+            expect(arr1.my_transpose).to eq(arr2)
+        end
+
+        it "should not use Array#uniq" do
+            arr = [1, 2, 3]
+            expect(arr1.my_transpose).to_not receive(:transpose)
         end
     end
 end
