@@ -77,4 +77,37 @@ describe "Array" do
             expect(arr1.my_transpose).to_not receive(:transpose)
         end
     end
+
+    describe "#stock_picker" do
+        let (:arr1) {[5, 4, 3, 2, 1]}
+        let (:arr2) {[1, 2, 3, 4, 5]}
+        let (:arr3) {[1, 4, 3, 5, 2]}
+        let (:arr4) {[7, 1, 5, 3, 6, 4]}
+
+        it "takes in an array" do
+            expect { arr1.stock_picker }.to_not raise_error
+        end
+
+        it "returns 0 when input is an empty array" do
+            expect([].stock_picker).to eq(0)
+        end
+
+        it "should return the correct result" do
+            expect(arr1.stock_picker).to eq(0)
+        end
+
+        it "should return the correct result" do
+            expect(arr2.stock_picker).to eq(4)
+        end
+
+        it "should return the correct result" do
+            expect(arr3.stock_picker).to eq(4)
+        end
+
+        it "should return the correct result" do
+            expect(arr4.stock_picker).to eq(5)
+        end
+    end
+
+    
 end

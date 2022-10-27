@@ -26,4 +26,17 @@ class Array
     end
     res
   end
+
+  def stock_picker
+    min_price = 9999
+    max_profit = 0
+    self.each do |price|
+        if price < min_price
+            min_price = price 
+        elsif price - min_price > max_profit
+            max_profit = price - min_price
+        end
+    end
+    max_profit
+  end
 end
