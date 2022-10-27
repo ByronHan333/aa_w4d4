@@ -4,4 +4,8 @@ class Card
     @symbol = symbol
     @value = value
   end
+
+  def inspect
+    { "symbol" => symbol, "value" => value }.inspect
+  end
 end
